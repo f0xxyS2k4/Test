@@ -1,0 +1,22 @@
+public static String generateNewPassword() {
+        // tao mat khau moi
+        int passwordLength = 12;
+
+        StringBuilder password = new StringBuilder(passwordLength);
+
+        // At least one lowercase character
+        password.append(CHAR_LOWER.charAt(random.nextInt(CHAR_LOWER.length())));
+
+        // At least one uppercase character
+        password.append(CHAR_UPPER.charAt(random.nextInt(CHAR_UPPER.length())));
+
+        // At least one digit
+        password.append(NUMBER.charAt(random.nextInt(NUMBER.length())));
+
+        // Fill in the rest of the password with random characters from PASSWORD_ALLOW_BASE
+        for (int i = 4; i < passwordLength; i++) {
+            password.append(PASSWORD_ALLOW_BASE.charAt(random.nextInt(PASSWORD_ALLOW_BASE.length())));
+        }
+
+        return password.toString();
+    }
